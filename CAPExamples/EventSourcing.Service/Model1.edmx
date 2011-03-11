@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CAP_EventSourcingModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CAP_EventSourcingModelStoreContainer">
+          <EntitySet Name="AccountBalance" EntityType="CAP_EventSourcingModel.Store.AccountBalance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Current" EntityType="CAP_EventSourcingModel.Store.Current" store:Type="Tables" store:Schema="dbo" store:Name="Current">
+            <DefiningQuery>SELECT 
+      [Current].[DateOfBusiness] AS [DateOfBusiness]
+      FROM [dbo].[Current] AS [Current]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Transfer" EntityType="CAP_EventSourcingModel.Store.Transfer" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="AccountBalance">
+          <Key>
+            <PropertyRef Name="Account" />
+            <PropertyRef Name="DateOfBusiness" />
+          </Key>
+          <Property Name="Account" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="DateOfBusiness" Type="date" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CAP_EventSourcing.dbo.Current' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Current">
+          <Key>
+            <PropertyRef Name="DateOfBusiness" />
+          </Key>
+          <Property Name="DateOfBusiness" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transfer">
+          <Key>
+            <PropertyRef Name="TransferID" />
+          </Key>
+          <Property Name="TransferID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="To" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="DateOfBusiness" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAP_EventSourcingModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CAP_EventSourcingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountBalances" EntityType="CAP_EventSourcingModel.AccountBalance" />
+          <EntitySet Name="Current" EntityType="CAP_EventSourcingModel.Current" />
+          <EntitySet Name="Transfers" EntityType="CAP_EventSourcingModel.Transfer" />
+        </EntityContainer>
+        <EntityType Name="AccountBalance">
+          <Key>
+            <PropertyRef Name="Account" />
+            <PropertyRef Name="DateOfBusiness" />
+          </Key>
+          <Property Name="Account" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DateOfBusiness" Type="DateTime" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Current">
+          <Key>
+            <PropertyRef Name="DateOfBusiness" />
+          </Key>
+          <Property Name="DateOfBusiness" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transfer">
+          <Key>
+            <PropertyRef Name="TransferID" />
+          </Key>
+          <Property Name="TransferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="To" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DateOfBusiness" Type="DateTime" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAP_EventSourcingModelStoreContainer" CdmEntityContainer="CAP_EventSourcingEntities">
+          <EntitySetMapping Name="AccountBalances"><EntityTypeMapping TypeName="CAP_EventSourcingModel.AccountBalance"><MappingFragment StoreEntitySet="AccountBalance">
+            <ScalarProperty Name="Account" ColumnName="Account" />
+            <ScalarProperty Name="DateOfBusiness" ColumnName="DateOfBusiness" />
+            <ScalarProperty Name="Balance" ColumnName="Balance" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Current"><EntityTypeMapping TypeName="CAP_EventSourcingModel.Current"><MappingFragment StoreEntitySet="Current">
+            <ScalarProperty Name="DateOfBusiness" ColumnName="DateOfBusiness" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Transfers"><EntityTypeMapping TypeName="CAP_EventSourcingModel.Transfer"><MappingFragment StoreEntitySet="Transfer">
+            <ScalarProperty Name="TransferID" ColumnName="TransferID" />
+            <ScalarProperty Name="From" ColumnName="From" />
+            <ScalarProperty Name="To" ColumnName="To" />
+            <ScalarProperty Name="DateOfBusiness" ColumnName="DateOfBusiness" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="171">
+        <EntityTypeShape EntityType="CAP_EventSourcingModel.AccountBalance" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAP_EventSourcingModel.Current" Width="1.5" PointX="4.625" PointY="0.75" Height="1.2110807291666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAP_EventSourcingModel.Transfer" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333326" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

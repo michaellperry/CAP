@@ -1,0 +1,86 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:CAP"
+	mc:Ignorable="d"
+	x:Class="CAP.Controls.Central"
+	d:DesignWidth="574" d:DesignHeight="503" Width="574" Height="503">
+
+	<Canvas>
+		<Border BorderBrush="Black" Height="81" Style="{StaticResource TableBorder}" HorizontalAlignment="Left" Width="165" Canvas.Left="216">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.491*"/>
+					<ColumnDefinition Width="0.509*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" MinHeight="16"/>
+					<RowDefinition Height="Auto" MinHeight="16"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Border Grid.ColumnSpan="2" BorderBrush="Black" Style="{StaticResource TableNameBorder}">
+					<TextBlock TextWrapping="Wrap" Text="AccountBalance" HorizontalAlignment="Center" Style="{StaticResource TableHeaderTextBox}"/>
+				</Border>
+				<Border Grid.Row="1" Style="{StaticResource ColumnNameBorder}">
+					<TextBlock TextWrapping="Wrap" Text="Account" Style="{StaticResource ColumnNameTextBlock}"/>
+				</Border>
+				<Border Grid.Column="1" Grid.Row="1" Style="{StaticResource ColumnNameBorder}">
+					<TextBlock TextWrapping="Wrap" Text="Balance" Style="{StaticResource ColumnNameTextBlock}"/>
+				</Border>
+			</Grid>
+		</Border>
+		<local:UserInterfaceIcon Height="83" VerticalAlignment="Top" HorizontalAlignment="Left" Width="139" Canvas.Left="197" Canvas.Top="420"/>
+		<Border Style="{StaticResource CodeBorder}" Height="285" VerticalAlignment="Top" Canvas.Top="97">
+			<TextBlock TextWrapping="Wrap" Style="{StaticResource CodeTextBlock}"><Run Text="Begin"/><LineBreak/><Run Text="   SELECT Balance FROM AccountBalance     WHERE Account = @From   SELECT Balance FROM AccountBalance     WHERE Account = @To"/><LineBreak/><Run Text="   "/><Run Text="Decide">
+					<Run.Foreground>
+						<SolidColorBrush Color="#FF9B0E0E">
+							<SolidColorBrush.RelativeTransform>
+								<MatrixTransform Matrix="Identity"/>
+							</SolidColorBrush.RelativeTransform>
+							<SolidColorBrush.Transform>
+								<MatrixTransform Matrix="Identity"/>
+							</SolidColorBrush.Transform>
+						</SolidColorBrush>
+					</Run.Foreground>
+				</Run><LineBreak/><Run>
+					<Run.Foreground>
+						<SolidColorBrush Color="#FF9B0E0E">
+							<SolidColorBrush.RelativeTransform>
+								<MatrixTransform Matrix="Identity"/>
+							</SolidColorBrush.RelativeTransform>
+							<SolidColorBrush.Transform>
+								<MatrixTransform Matrix="Identity"/>
+							</SolidColorBrush.Transform>
+						</SolidColorBrush>
+					</Run.Foreground>
+				</Run><Run Text="   UPDATE AccountBalanace     SET Balance = @DecreasedAmount     WHERE Account = @From   UPDATE AccountBalance     SET Balance = @IncreasedAmount     WHERE Account = @To"/><LineBreak/><Run Text=" Commit"/></TextBlock>
+		</Border>
+		<Border Style="{StaticResource CodeBorder}" Height="37" HorizontalAlignment="Left" Width="228" Canvas.Left="346" Canvas.Top="203">
+			<TextBlock TextWrapping="Wrap" Style="{StaticResource CodeTextBlock}"><Run FontFamily="Verdana, Arial, Arial Unicode MS, Lucida Sans Unicode, Lucida Grande" Text="SELECT Balance FROM AccountBalance   WHERE Account = @Account "/></TextBlock>
+		</Border>
+		<local:FlowLine Height="102" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Left="146.215" Canvas.Top="373.025">
+			<local:FlowLine.RenderTransform>
+				<CompositeTransform Rotation="-43.237"/>
+			</local:FlowLine.RenderTransform>
+		</local:FlowLine>
+		<TextBlock TextWrapping="Wrap" Text="Post" VerticalAlignment="Top" Style="{StaticResource FlowTextBlock}" Canvas.Left="125" Canvas.Top="428"/>
+		<local:FlowLine Height="68" Width="28" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Canvas.Left="172" Canvas.Top="35">
+			<local:FlowLine.RenderTransform>
+				<CompositeTransform Rotation="45.621"/>
+			</local:FlowLine.RenderTransform>
+		</local:FlowLine>
+		<local:FlowLine RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Left" Width="32" Height="157.803" Canvas.Left="423.525" Canvas.Top="52.832">
+			<local:FlowLine.RenderTransform>
+				<CompositeTransform Rotation="-36.797"/>
+			</local:FlowLine.RenderTransform>
+		</local:FlowLine>
+		<local:FlowLine RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Left" Width="29" Height="261.819" VerticalAlignment="Top" Canvas.Left="405.136" Canvas.Top="227.931">
+			<local:FlowLine.RenderTransform>
+				<CompositeTransform Rotation="33.518"/>
+			</local:FlowLine.RenderTransform>
+		</local:FlowLine>
+		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Get" VerticalAlignment="Top" Style="{StaticResource FlowTextBlock}" Canvas.Left="378" Canvas.Top="428"/>
+	</Canvas>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="CAP.Controls.Title"
+	d:DesignWidth="640" d:DesignHeight="480" Width="574" Height="503">
+
+	<Grid x:Name="LayoutRoot">
+		<TextBlock Height="80" Margin="34,71,27,0" TextWrapping="Wrap" Text="The CAP Theorem" VerticalAlignment="Top" Foreground="White" FontSize="48" HorizontalAlignment="Center"/>
+		<TextBlock Height="43" Margin="131,155,106,0" TextWrapping="Wrap" Text="and its implications" VerticalAlignment="Top" FontSize="29.333" Foreground="White" HorizontalAlignment="Center"/>
+		<TextBlock HorizontalAlignment="Right" Height="75" Margin="0,0,29,26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="151" Foreground="#FFBEBEBE" FontSize="14.667"><Run Text="Michael L Perry"/><LineBreak/><Run Text="qedcode.com"/><LineBreak/><Run Text="@MichaelLPerry"/></TextBlock>
+	</Grid>
+</UserControl>

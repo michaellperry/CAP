@@ -1,0 +1,13 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="CAP.Controls.UdiDahan"
+	d:DesignWidth="640" d:DesignHeight="480" Width="574" Height="503">
+
+	<Grid x:Name="LayoutRoot">
+		<Image Margin="0,0,0,-169" Source="Image2.png" Stretch="Fill" Clip="M-1.001358E-05,-9.5367432E-07 L574,-9.5367432E-07 L574,503 L-1.001358E-05,503 z"/>
+	</Grid>
+</UserControl>

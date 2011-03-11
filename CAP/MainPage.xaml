@@ -1,0 +1,228 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CAP"
+    xmlns:controls="clr-namespace:CAP.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    mc:Ignorable="d"
+    x:Class="CAP.MainPage">
+
+    <Grid
+        x:Name="LayoutRoot"
+        Background="#000000"
+        KeyUp="LayoutRoot_KeyUp">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="Activation">
+    			<VisualStateGroup.Transitions>
+    				<VisualTransition GeneratedDuration="0:0:1"/>
+    			</VisualStateGroup.Transitions>
+    			<VisualState x:Name="Title">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="title" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="EricBrewer">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ericBrewer" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="UdiDahan">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="udiDahan" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="GregYoung">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="gregYoung" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+                <VisualState
+                    x:Name="Definitions">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Duration="0"
+                            To="1"
+                            Storyboard.TargetProperty="(UIElement.Opacity)"
+                            Storyboard.TargetName="definitions"
+                            d:IsOptimized="True" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState
+                    x:Name="Proof">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Duration="0"
+                            To="1"
+                            Storyboard.TargetProperty="(UIElement.Opacity)"
+                            Storyboard.TargetName="proof"
+                            d:IsOptimized="True" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState
+                    x:Name="Choices">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Duration="0"
+                            To="1"
+                            Storyboard.TargetProperty="(UIElement.Opacity)"
+                            Storyboard.TargetName="choices"
+                            d:IsOptimized="True" />
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="CentralDatabase">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="central" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="CQRS">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="cqrs" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="EventSourcing">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="eventSourcing" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+                <VisualState
+                    x:Name="Conclusion">
+                    <Storyboard>
+                        <DoubleAnimation
+                            Duration="0"
+                            To="1"
+                            Storyboard.TargetProperty="(UIElement.Opacity)"
+                            Storyboard.TargetName="conclusion"
+                            d:IsOptimized="True" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Viewbox
+            Margin="8">
+            <Grid Height="575" Width="758">
+            	<Grid.RowDefinitions>
+            		<RowDefinition Height="0.107*"/>
+            		<RowDefinition Height="0.893*"/>
+            	</Grid.RowDefinitions>
+        		<Border
+        			x:Name="map"
+        			MouseWheel="Map_MouseWheel"
+        			MouseLeftButtonDown="Map_MouseLeftButtonDown"
+        			MouseMove="Map_MouseMove"
+        			MouseLeftButtonUp="Map_MouseLeftButtonUp" Margin="0,0,174,0" d:LayoutOverrides="Width, Height" Grid.Row="1">
+        			<Border.Background>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FF0D112F" Offset="0.345"/>
+        					<GradientStop Color="#FF414358" Offset="1"/>
+        				</LinearGradientBrush>
+        			</Border.Background>
+        			<Border.Clip>
+        				<RectangleGeometry
+        					Rect="0,0,584,513" />
+        			</Border.Clip>
+        			<Canvas
+        				Width="584"
+        				Height="513">
+        				<Canvas.RenderTransform>
+        					<TransformGroup>
+        						<TranslateTransform
+        							X="{Binding PositionX}"
+        							Y="{Binding PositionY}" />
+        						<ScaleTransform
+        							ScaleX="{Binding Scale}"
+        							ScaleY="{Binding Scale}" />
+        					</TransformGroup>
+        				</Canvas.RenderTransform>
+        				<controls:Title x:Name="title"
+        					DataContext="{Binding Title}"
+        					Margin="5"
+        					Style="{StaticResource PageStyle}" />
+                        <controls:EricBrewer
+                            x:Name="ericBrewer"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding EricBrewer}" />
+                        <controls:UdiDahan
+                            x:Name="udiDahan"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding UdiDahan}" />
+                        <controls:GregYoung
+                            x:Name="gregYoung"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding GregYoung}" />
+                        <controls:Definitions
+                            x:Name="definitions"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding Definitions}" />
+                        <controls:Proof
+                            x:Name="proof"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding Proof}" />
+                        <controls:Choices
+                            x:Name="choices"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding Choices}" />
+                        <controls:Central x:Name="central"
+        					DataContext="{Binding CentralDatabase}"
+        					d:LayoutOverrides="VerticalAlignment, VerticalMargin"
+        					Margin="5" Style="{StaticResource PageStyle}" />
+                        <controls:CQRS x:Name="cqrs"
+        					DataContext="{Binding CQRS}"
+        					Margin="5" Style="{StaticResource PageStyle}" />
+                        <controls:EventSourcing x:Name="eventSourcing"
+        					DataContext="{Binding EventSourcing}"
+        					Margin="5" Style="{StaticResource PageStyle}" />
+                        <controls:Conclusion
+                            x:Name="conclusion"
+                            DataContext="{Binding Conclusion}"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}" />
+                    </Canvas>
+        		</Border>
+        		<TextBox
+        			Width="167"
+        			BorderThickness="1"
+        			Background="#FF1B1B1B"
+        			Foreground="White"
+        			FontSize="14.667"
+        			AcceptsReturn="True"
+        			Text="{Binding Notes, Mode=TwoWay}"
+        			local:BindingHelper.UpdateSourceOnChange="True" CaretBrush="White" TextWrapping="Wrap" HorizontalAlignment="Right" d:LayoutOverrides="Height" Grid.Row="1">
+        			<TextBox.BorderBrush>
+        				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        					<GradientStop Color="#FF51515E" Offset="0"/>
+        					<GradientStop Color="#FF191439" Offset="1"/>
+        				</LinearGradientBrush>
+        			</TextBox.BorderBrush>
+        		</TextBox>
+                <TextBlock
+                    TextWrapping="Wrap"
+                    Foreground="White"
+                    FontSize="32"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="{Binding CurrentTitle}"/>
+        	</Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

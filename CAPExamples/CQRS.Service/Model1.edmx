@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CAP_CQRSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CAP_CQRSModelStoreContainer">
+          <EntitySet Name="AccountBalance" EntityType="CAP_CQRSModel.Store.AccountBalance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transfer" EntityType="CAP_CQRSModel.Store.Transfer" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Transfer_From" Association="CAP_CQRSModel.Store.FK_Transfer_From">
+            <End Role="AccountBalance" EntitySet="AccountBalance" />
+            <End Role="Transfer" EntitySet="Transfer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transfer_To" Association="CAP_CQRSModel.Store.FK_Transfer_To">
+            <End Role="AccountBalance" EntitySet="AccountBalance" />
+            <End Role="Transfer" EntitySet="Transfer" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccountBalance">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Balance" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <EntityType Name="Transfer">
+          <Key>
+            <PropertyRef Name="TransferID" />
+          </Key>
+          <Property Name="TransferID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="To" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Transfer_From">
+          <End Role="AccountBalance" Type="CAP_CQRSModel.Store.AccountBalance" Multiplicity="1" />
+          <End Role="Transfer" Type="CAP_CQRSModel.Store.Transfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountBalance">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Transfer">
+              <PropertyRef Name="From" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transfer_To">
+          <End Role="AccountBalance" Type="CAP_CQRSModel.Store.AccountBalance" Multiplicity="1" />
+          <End Role="Transfer" Type="CAP_CQRSModel.Store.Transfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountBalance">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Transfer">
+              <PropertyRef Name="To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAP_CQRSModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CAP_CQRSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountBalances" EntityType="CAP_CQRSModel.AccountBalance" />
+          <EntitySet Name="Transfers" EntityType="CAP_CQRSModel.Transfer" />
+          <AssociationSet Name="FK_Transfer_From" Association="CAP_CQRSModel.FK_Transfer_From">
+            <End Role="AccountBalance" EntitySet="AccountBalances" />
+            <End Role="Transfer" EntitySet="Transfers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transfer_To" Association="CAP_CQRSModel.FK_Transfer_To">
+            <End Role="AccountBalance" EntitySet="AccountBalances" />
+            <End Role="Transfer" EntitySet="Transfers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccountBalance">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Balance" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="TransfersFrom" Relationship="CAP_CQRSModel.FK_Transfer_From" FromRole="AccountBalance" ToRole="Transfer" />
+          <NavigationProperty Name="TransfersTo" Relationship="CAP_CQRSModel.FK_Transfer_To" FromRole="AccountBalance" ToRole="Transfer" />
+        </EntityType>
+        <EntityType Name="Transfer">
+          <Key>
+            <PropertyRef Name="TransferID" />
+          </Key>
+          <Property Name="TransferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="To" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="FromAccountBalance" Relationship="CAP_CQRSModel.FK_Transfer_From" FromRole="Transfer" ToRole="AccountBalance" />
+          <NavigationProperty Name="ToAccountBalance" Relationship="CAP_CQRSModel.FK_Transfer_To" FromRole="Transfer" ToRole="AccountBalance" />
+        </EntityType>
+        <Association Name="FK_Transfer_From">
+          <End Role="AccountBalance" Type="CAP_CQRSModel.AccountBalance" Multiplicity="1" />
+          <End Role="Transfer" Type="CAP_CQRSModel.Transfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountBalance">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Transfer">
+              <PropertyRef Name="From" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transfer_To">
+          <End Role="AccountBalance" Type="CAP_CQRSModel.AccountBalance" Multiplicity="1" />
+          <End Role="Transfer" Type="CAP_CQRSModel.Transfer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountBalance">
+              <PropertyRef Name="Account" />
+            </Principal>
+            <Dependent Role="Transfer">
+              <PropertyRef Name="To" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAP_CQRSModelStoreContainer" CdmEntityContainer="CAP_CQRSEntities">
+          <EntitySetMapping Name="AccountBalances"><EntityTypeMapping TypeName="CAP_CQRSModel.AccountBalance"><MappingFragment StoreEntitySet="AccountBalance">
+            <ScalarProperty Name="Account" ColumnName="Account" />
+            <ScalarProperty Name="Balance" ColumnName="Balance" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Transfers"><EntityTypeMapping TypeName="CAP_CQRSModel.Transfer"><MappingFragment StoreEntitySet="Transfer">
+            <ScalarProperty Name="TransferID" ColumnName="TransferID" />
+            <ScalarProperty Name="From" ColumnName="From" />
+            <ScalarProperty Name="To" ColumnName="To" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1" ZoomLevel="172">
+        <EntityTypeShape EntityType="CAP_CQRSModel.AccountBalance" Width="1.5" PointX="0.75" PointY="1.125" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="CAP_CQRSModel.Transfer" Width="1.875" PointX="3" PointY="0.875" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="CAP_CQRSModel.FK_Transfer_From" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.2737406412760417" />
+          <ConnectorPoint PointX="3" PointY="2.2737406412760417" />
+        </AssociationConnector>
+        <AssociationConnector Association="CAP_CQRSModel.FK_Transfer_To" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.6368703206380209" />
+          <ConnectorPoint PointX="3" PointY="1.6368703206380209" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

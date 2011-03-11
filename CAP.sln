@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CAPSite", "CAPSite\", "{E0DE7A4A-7E10-43F1-8144-10A3B4B499A4}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CAPSite"
+		Debug.AspNetCompiler.PhysicalPath = "CAPSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CAPSite\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CAPSite"
+		Release.AspNetCompiler.PhysicalPath = "CAPSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CAPSite\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1380"
+		ProjOutputReferences = "{a8bf8221-990d-4518-aec7-944ae65aead5}|ClientBin|false;"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CAP", "CAP\CAP.csproj", "{A8BF8221-990D-4518-AEC7-944AE65AEAD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0DE7A4A-7E10-43F1-8144-10A3B4B499A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DE7A4A-7E10-43F1-8144-10A3B4B499A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DE7A4A-7E10-43F1-8144-10A3B4B499A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DE7A4A-7E10-43F1-8144-10A3B4B499A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8BF8221-990D-4518-AEC7-944AE65AEAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8BF8221-990D-4518-AEC7-944AE65AEAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8BF8221-990D-4518-AEC7-944AE65AEAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8BF8221-990D-4518-AEC7-944AE65AEAD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

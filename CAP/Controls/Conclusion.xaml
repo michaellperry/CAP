@@ -1,0 +1,18 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="CAP.Controls.Conclusion"
+	d:DesignWidth="640" d:DesignHeight="480" Width="574" Height="503">
+
+	<Grid x:Name="LayoutRoot">
+		<TextBlock Margin="74,35,255,0" TextWrapping="Wrap" Text="Michael L Perry" VerticalAlignment="Top" Foreground="White" FontSize="32" d:LayoutOverrides="Width"/>
+		<TextBlock Margin="74,82,0,0" TextWrapping="Wrap" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"><Run Text="qedcode.com"/><LineBreak/><Run Text="@MichaelLPerry"/></TextBlock>
+		<TextBlock Margin="74,185,255,0" TextWrapping="Wrap" Text="Udi Dahan" VerticalAlignment="Top" Foreground="White" FontSize="32" d:LayoutOverrides="Width"/>
+		<TextBlock Margin="74,232,0,0" TextWrapping="Wrap" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment" Text="udidahan.com" VerticalAlignment="Top"/>
+		<TextBlock Margin="74,0,255,164" TextWrapping="Wrap" Text="Greg Young" VerticalAlignment="Bottom" Foreground="White" FontSize="32" d:LayoutOverrides="Width"/>
+		<TextBlock Margin="74,339,0,0" TextWrapping="Wrap" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="codebetter.com/blogs/gregyoung"/><LineBreak/><Run Text="shrinkster.com/1efm"/></TextBlock>
+	</Grid>
+</UserControl>

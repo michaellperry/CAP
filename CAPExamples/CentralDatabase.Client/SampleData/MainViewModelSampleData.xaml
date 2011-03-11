@@ -1,0 +1,10 @@
+<CentralDatabase_Client:MainViewModel xmlns:CentralDatabase_Client="clr-namespace:CentralDatabase.Client" xmlns:System="clr-namespace:System;assembly=mscorlib" FromAccount="12345" ToAccount="23456">
+	<CentralDatabase_Client:MainViewModel.AccountBalance>
+		<System:Decimal>300.00
+        </System:Decimal>
+	</CentralDatabase_Client:MainViewModel.AccountBalance>
+	<CentralDatabase_Client:MainViewModel.TransferAmount>
+		<System:Decimal>20.00
+        </System:Decimal>
+	</CentralDatabase_Client:MainViewModel.TransferAmount>
+</CentralDatabase_Client:MainViewModel>
