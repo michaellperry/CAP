@@ -68,12 +68,15 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Controls" />
-    <Reference Include="System.Windows.Controls.Toolkit" />
-    <Reference Include="System.Windows.Controls.Toolkit.Internals" />
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\packages\SilverlightToolkit-Core.4.2010.4\lib\sl4\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
-    <Reference Include="UpdateControls.Light, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="UpdateControls">
+      <HintPath>..\packages\updatecontrols.2.1.1.6\lib\Silverlight 4.0\UpdateControls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -207,6 +210,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
