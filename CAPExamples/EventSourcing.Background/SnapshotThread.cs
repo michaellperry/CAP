@@ -80,15 +80,15 @@ namespace EventSourcing.Background
                                     t.From == lastBalance.Account &&
                                     t.DateOfBusiness > lastBalanceDate &&
                                     t.DateOfBusiness <= thisBalanceDate
-                                select t.Amount;
+                                select (decimal?)t.Amount;
                             var transfersTo =
                                 from t in entities.Transfers
                                 where
                                     t.To == lastBalance.Account &&
                                     t.DateOfBusiness > lastBalanceDate &&
                                     t.DateOfBusiness <= thisBalanceDate
-                                select t.Amount;
-                            var thisBalance = lastBalance.Balance - transfersFrom.Sum() + transfersTo.Sum();
+                                select (decimal?)t.Amount;
+                            var thisBalance = lastBalance.Balance - (transfersFrom.Sum() ?? 0.0m) + (transfersTo.Sum() ?? 0.0m);
 
                             // Insert the new snapshot.
                             entities.AddToAccountBalances(new AccountBalance()

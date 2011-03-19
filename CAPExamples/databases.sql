@@ -2,10 +2,7 @@ USE [master]
 GO
 
 /****** Object:  Database [CAP_CentralDatabase]    Script Date: 07/05/2010 17:30:13 ******/
-CREATE DATABASE [CAP_CentralDatabase] ON  PRIMARY 
-( NAME = N'CAP_CentralDatabase', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_CentralDatabase.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'CAP_CentralDatabase_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_CentralDatabase_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+CREATE DATABASE [CAP_CentralDatabase] 
 GO
 
 ALTER DATABASE [CAP_CentralDatabase] SET COMPATIBILITY_LEVEL = 100
@@ -122,10 +119,7 @@ USE [master]
 GO
 
 /****** Object:  Database [CAP_CQRS]    Script Date: 07/05/2010 17:30:55 ******/
-CREATE DATABASE [CAP_CQRS] ON  PRIMARY 
-( NAME = N'CAP_CQRS', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_CQRS.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'CAP_CQRS_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_CQRS_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+CREATE DATABASE [CAP_CQRS]
 GO
 
 ALTER DATABASE [CAP_CQRS] SET COMPATIBILITY_LEVEL = 100
@@ -270,10 +264,7 @@ USE [master]
 GO
 
 /****** Object:  Database [CAP_EventSourcing]    Script Date: 07/05/2010 17:31:06 ******/
-CREATE DATABASE [CAP_EventSourcing] ON  PRIMARY 
-( NAME = N'CAP_EventSourcing', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_EventSourcing.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'CAP_EventSourcing_log', FILENAME = N'c:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\DATA\CAP_EventSourcing_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+CREATE DATABASE [CAP_EventSourcing]
 GO
 
 ALTER DATABASE [CAP_EventSourcing] SET COMPATIBILITY_LEVEL = 100

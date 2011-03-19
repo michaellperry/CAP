@@ -28,6 +28,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Client", "Eve
 		{B874823C-655C-4B73-8CE0-39CD56B6EB2E} = {B874823C-655C-4B73-8CE0-39CD56B6EB2E}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{E30C90E9-2420-4D03-8223-F736AEEE56A2}"
+	ProjectSection(SolutionItems) = preProject
+		Check_CentralDatabase.sql = Check_CentralDatabase.sql
+		Check_CQRS.sql = Check_CQRS.sql
+		Check_EventSourcing.sql = Check_EventSourcing.sql
+		databases.sql = databases.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
