@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="CAP.Controls.SlidesAndCode"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="336.395" d:DesignWidth="285.112" Width="574" Height="503">
+
+	<Viewbox>
+
+		<Grid x:Name="LayoutRoot" Height="171" Width="124">
+			<Image Source="Image7.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Height="114" Width="114" Margin="0,52,0,0"/>
+			<TextBlock Margin="0,11,0,0" TextWrapping="Wrap" Text="qedcode.com/cap" VerticalAlignment="Top" Foreground="White" HorizontalAlignment="Center"/>
+		</Grid>
+	</Viewbox>
+</UserControl>

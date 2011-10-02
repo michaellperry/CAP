@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>4.0.30701.0</ExpressionBlendVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A8BF8221-990D-4518-AEC7-944AE65AEAD5}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -83,6 +83,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BindingHelper.cs" />
+    <Compile Include="Controls\AboutMe.xaml.cs">
+      <DependentUpon>AboutMe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Central.xaml.cs">
       <DependentUpon>Central.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
     <Compile Include="Controls\Proof.xaml.cs">
       <DependentUpon>Proof.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SlidesAndCode.xaml.cs">
+      <DependentUpon>SlidesAndCode.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Title.xaml.cs">
       <DependentUpon>Title.xaml</DependentUpon>
     </Compile>
@@ -126,6 +132,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="PageNavigationModel.cs" />
     <Compile Include="Pages\Page.cs" />
+    <Compile Include="Pages\PageAboutMe.cs" />
     <Compile Include="Pages\PageCentralDatabase.cs" />
     <Compile Include="Pages\PageChoices.cs" />
     <Compile Include="Pages\PageConclusion.cs" />
@@ -135,6 +142,7 @@
     <Compile Include="Pages\PageEventSourcing.cs" />
     <Compile Include="Pages\PageGregYoung.cs" />
     <Compile Include="Pages\PageProof.cs" />
+    <Compile Include="Pages\PageSlidesAndCode.cs" />
     <Compile Include="Pages\PageTitle.cs" />
     <Compile Include="Pages\PageUdiDahan.cs" />
     <Compile Include="PresentationNavigationModel.cs" />
@@ -148,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\AboutMe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Central.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -184,6 +196,10 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\SlidesAndCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Title.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -214,6 +230,9 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controls\DEVLINK2011SlideBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Controls\Image1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -228,6 +247,8 @@
     <Resource Include="Controls\Image2.png" />
     <Resource Include="Controls\Image3.png" />
     <Resource Include="Controls\Image6.png" />
+    <Resource Include="Controls\Image7.png" />
+    <Resource Include="Controls\MVP_FullColor_ForScreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

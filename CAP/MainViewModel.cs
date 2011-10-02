@@ -11,6 +11,8 @@ namespace CAP
         private PresentationNavigationModel _presentationNavigation;
 
         private PageTitle _title;
+        private PageSlidesAndCode _slidesAndCode;
+        private PageAboutMe _aboutMe;
         private PageEricBrewer _ericBrewer;
         private PageUdiDahan _udiDahan;
         private PageGregYoung _gregYoung;
@@ -35,6 +37,8 @@ namespace CAP
             _presentationNavigation = new PresentationNavigationModel();
 
             _title = new PageTitle(_presentationNavigation);
+            _slidesAndCode = new PageSlidesAndCode(_presentationNavigation);
+            _aboutMe = new PageAboutMe(_presentationNavigation);
             _ericBrewer = new PageEricBrewer(_presentationNavigation);
             _udiDahan = new PageUdiDahan(_presentationNavigation);
             _gregYoung = new PageGregYoung(_presentationNavigation);
@@ -49,6 +53,8 @@ namespace CAP
             _pages = new IPage[]
             {
                 _title,
+                _slidesAndCode,
+                _aboutMe,
                 _ericBrewer,
                 _udiDahan,
                 _gregYoung,
@@ -84,6 +90,16 @@ namespace CAP
         public PageTitle Title
         {
             get { return _title; }
+        }
+
+        public PageSlidesAndCode SlidesAndCode
+        {
+            get { return _slidesAndCode; }
+        }
+
+        public PageAboutMe AboutMe
+        {
+            get { return _aboutMe; }
         }
 
         public PageEricBrewer EricBrewer

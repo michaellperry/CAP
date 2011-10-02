@@ -14,5 +14,6 @@
 		<TextBlock Margin="74,232,0,0" TextWrapping="Wrap" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment" Text="udidahan.com" VerticalAlignment="Top"/>
 		<TextBlock Margin="74,0,255,164" TextWrapping="Wrap" Text="Greg Young" VerticalAlignment="Bottom" Foreground="White" FontSize="32" d:LayoutOverrides="Width"/>
 		<TextBlock Margin="74,339,0,0" TextWrapping="Wrap" FontSize="26.667" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="codebetter.com/blogs/gregyoung"/><LineBreak/><Run Text="shrinkster.com/1efm"/></TextBlock>
+		<Image Margin="0,19,23,0" Source="Image7.png" Stretch="Fill" HorizontalAlignment="Right" Height="186" VerticalAlignment="Top" Width="186"/>
 	</Grid>
 </UserControl>

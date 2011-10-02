@@ -24,7 +24,17 @@
     					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="title" d:IsOptimized="True"/>
     				</Storyboard>
     			</VisualState>
-    			<VisualState x:Name="EricBrewer">
+                <VisualState x:Name="SlidesAndCode">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="slidesAndCode" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="AboutMe">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="aboutMe" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="EricBrewer">
     				<Storyboard>
     					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ericBrewer" d:IsOptimized="True"/>
     				</Storyboard>
@@ -146,6 +156,18 @@
         					DataContext="{Binding Title}"
         					Margin="5"
         					Style="{StaticResource PageStyle}" />
+                        <controls:SlidesAndCode
+                            x:Name="slidesAndCode"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding SlidesAndCode}" />
+                        <controls:AboutMe
+                            x:Name="aboutMe"
+                            d:LayoutOverrides="Width, Height"
+                            Margin="5"
+                            Style="{StaticResource PageStyle}"
+                            DataContext="{Binding SlidesAndCode}" />
                         <controls:EricBrewer
                             x:Name="ericBrewer"
                             d:LayoutOverrides="Width, Height"
